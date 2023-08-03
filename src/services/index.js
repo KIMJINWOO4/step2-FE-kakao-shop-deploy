@@ -3,8 +3,7 @@ import { checkStatus } from "../utils/statuscatch";
 import { getCookie } from "../store/cookies";
 
 export const instance = axios.create({
-  baseURL:
-    "http://kakao-app-env.eba-kfsgeb74.ap-northeast-2.elasticbeanstalk.com/",
+  baseURL: "http://localhost:8080",
   timeout: 1000,
   headers: {
     "Content-Type": "application/json",
