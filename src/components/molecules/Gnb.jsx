@@ -9,6 +9,7 @@ const GNB = ({ children }) => {
   const movePage = useNavigate();
   const token = getCookie("token");
   const dispatch = useDispatch();
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   function gohome(url) {
     movePage(url);
   }
@@ -27,9 +28,9 @@ const GNB = ({ children }) => {
         </h1>
         <Container className="text-base leading-6 font-sans text-gray-700 pt-13 pr-0 pb-13 pl-3 flex justify-end">
           <span className="block mt-3 mr-4">
-            <Link to="/cart">
+            <Link to={staticServerUrl + "/cart"}>
               <img
-                src={"/cart.png"}
+                src={"%PUBLIC_URL%/cart.png"}
                 alt="장바구니 버튼"
                 height={30}
                 width={40}
@@ -40,12 +41,12 @@ const GNB = ({ children }) => {
           <Button
             className="text-base leading-7 font-sans text-black no-underline font-semibold block"
             onClick={() => {
-              let url = "/login";
+              let url = staticServerUrl + "/login";
               if (token) {
                 dispatch(setLogin(false)); //로그아웃 상태로 만듦
                 deleteCookie("token"); //유효시간 관리하는 토큰 쿠키 삭제
                 alert("logout");
-                url = "/";
+                url = staticServerUrl + "/";
               }
               gohome(url);
             }}

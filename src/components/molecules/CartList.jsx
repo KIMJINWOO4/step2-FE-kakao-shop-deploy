@@ -15,7 +15,7 @@ const CartList = ({ data }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [updatePayload, setUpdatePayload] = useState([]);
-
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   const { mutate } = useMutation({
     mutationFn: modifiedCart,
   });
@@ -141,7 +141,7 @@ const CartList = ({ data }) => {
         onClick={() => {
           mutate(updatePayload, {
             onSuccess: (data) => {
-              navigate("/order");
+              navigate(staticServerUrl + "/order");
             },
             onError: (err) => {},
           });

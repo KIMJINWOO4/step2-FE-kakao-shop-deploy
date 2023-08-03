@@ -5,10 +5,11 @@ import GNB from "../components/molecules/Gnb";
 import Footer from "../components/molecules/Footer";
 function RequiredAuthLayout() {
   const navigate = useNavigate();
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   useEffect(() => {
     if (getCookie("token") === null) {
       alert("로그인이 필요한 서비스입니다.");
-      navigate("/login");
+      navigate(staticServerUrl + "/login");
     }
   }, [navigate]);
   return (

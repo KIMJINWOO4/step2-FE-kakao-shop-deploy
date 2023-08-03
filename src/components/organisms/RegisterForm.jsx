@@ -16,8 +16,9 @@ const RegisterForm = () => {
     passwordConfirm: "",
   });
   const navigator = useNavigate();
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   function gohome(url) {
-    navigator(url);
+    navigator(staticServerUrl + url);
   }
   const dispatch = useDispatch();
   const error = useSelector((state) => state.user.error);

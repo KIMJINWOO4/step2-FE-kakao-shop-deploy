@@ -4,6 +4,7 @@ import { comma } from "../../utils/convert";
 const OrderCompleteTemplate = ({ data }) => {
   const example = data?.data?.response ? data?.data?.response : null;
   const navigate = useNavigate();
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   return (
     <section className="py-10 my-10 mx-auto max-w-[500px] bg-white w-full">
       <div className="text-center py-10">
@@ -58,7 +59,7 @@ const OrderCompleteTemplate = ({ data }) => {
         <button
           className="block bg-yellow-400 w-full p-4 text-black font-bold text-xl"
           onClick={() => {
-            navigate("/");
+            navigate(staticServerUrl + "/");
           }}
         >
           쇼핑 계속 하기

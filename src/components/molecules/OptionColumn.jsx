@@ -12,6 +12,8 @@ const OptionColumn = ({ product }) => {
   const navigate = useNavigate();
   const [selectiedOptions, setSelectiedOptions] = useState([]);
   const [modifiedOptions, setModifiedOptions] = useState([]);
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
+
   const handleOnClickOption = (option) => {
     //동일 옵션 클릭 방지 코드
     const isOptionSelected = selectiedOptions.find(
@@ -39,7 +41,7 @@ const OptionColumn = ({ product }) => {
     new Promise((resolve, reject) => {
       if (getCookie("token") === null) {
         alert("로그인이 필요한 서비스입니다.");
-        navigate("/login");
+        navigate(staticServerUrl + "/login");
         reject(0);
         return;
       }
@@ -90,7 +92,7 @@ const OptionColumn = ({ product }) => {
       }, 0)
     ) {
       alert("장바구니에 담긴 상품이 없습니다.");
-    } else navigate("/cart");
+    } else navigate(staticServerUrl + "/cart");
   };
   const handleOnChange = (count, optionId) => {
     if (count < 0) return;

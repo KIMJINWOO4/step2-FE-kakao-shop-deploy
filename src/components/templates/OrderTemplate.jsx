@@ -8,6 +8,7 @@ import { pgpay } from "../../services/pgpay";
 
 const OrderTemplate = ({ data }) => {
   const { products, totalPrice } = data?.data?.response;
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   const { mutate } = useMutation({
     mutationFn: () => {
       return order();
@@ -41,22 +42,22 @@ const OrderTemplate = ({ data }) => {
     mutate(null, {
       onSuccess: (res) => {
         alert("주문 완료되었습니다.");
-        navigate(`/orders/complete/${res.data.response.id}`);
+        navigate(staticServerUrl + `/orders/complete/${res.data.response.id}`);
       },
       onError: (e) => {
         console.log(e);
         if (e?.error?.status === 404) {
           //정상적으로 요청이 보내지지만 장바구니에 내역이 없을 경우
           alert("장바구니에 아무 내역도 존재하지 않습니다");
-          navigate("/");
+          navigate(staticServerUrl + "/");
         } else if (e?.error?.status === 401) {
           //인증 정보가 아예 없을 경우
           alert("인증되지 않았습니다.");
-          navigate("/login");
+          navigate(staticServerUrl + "/login");
         } else if (e?.status === 500) {
           //토큰이 유효하지 않거나 서버에 문제가 있는경우 객체에 바로 error, status가 담김
           alert("서버에 문제가 있거나 인증이 만료되었습니다.");
-          navigate("/login");
+          navigate(staticServerUrl + "/login");
         }
       },
     });

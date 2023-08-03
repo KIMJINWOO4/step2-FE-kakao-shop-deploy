@@ -14,7 +14,7 @@ const CartItem = ({ item, onChange, onClick }) => {
     <Box className="cart-item-box border-t-2 border-b-2 border-solid bg-white p-16 rounded-lg">
       <div className="flex ">
         <div className="w-20 h-20 mx-5 mt-2 ">
-          <Photo src={`/images/${item.id}.jpg`} />
+          <Photo src={`%PUBLIC_URL%/images/${item.id}.jpg`} />
         </div>
         <h5 className=" ml-5 mt-5 h-5">{item.productName}</h5>
         <Button
