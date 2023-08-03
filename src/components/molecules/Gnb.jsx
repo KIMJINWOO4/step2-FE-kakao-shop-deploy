@@ -30,7 +30,7 @@ const GNB = ({ children }) => {
           <span className="block mt-3 mr-4">
             <Link to={staticServerUrl + "/cart"}>
               <img
-                src={staticServerUrl + "cart.png"}
+                src={staticServerUrl + "/cart.png"}
                 alt="장바구니 버튼"
                 height={30}
                 width={40}
