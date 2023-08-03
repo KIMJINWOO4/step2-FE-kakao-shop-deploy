@@ -2,8 +2,9 @@ import axios from "axios";
 import { checkStatus } from "../utils/statuscatch";
 import { getCookie } from "../store/cookies";
 
+const staticServerUrl = process.env.REACT_APP_PATH || "";
 export const instance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: staticServerUrl + "/api",
   timeout: 1000,
   headers: {
     "Content-Type": "application/json",
