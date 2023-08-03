@@ -22,13 +22,13 @@ const Carousel = () => {
     <div>
       <Slider {...settings}>
         <div>
-          <img src="carouselItem1.jpeg" alt="carouselItem1" />
+          <img src="/carouselItem1.jpeg" alt="carouselItem1" />
         </div>
         <div>
-          <img src="carouselItem2.jpeg" alt="carouselItem2" />
+          <img src="/carouselItem2.jpeg" alt="carouselItem2" />
         </div>
         <div>
-          <img src="carouselItem3.jpeg" alt="carouselItem3" />
+          <img src="/carouselItem3.jpeg" alt="carouselItem3" />
         </div>
       </Slider>
     </div>
