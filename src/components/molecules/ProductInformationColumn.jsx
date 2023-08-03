@@ -2,11 +2,11 @@ import { comma } from "../../utils/convert";
 import Photo from "../atoms/Photo";
 const ProductInformationColumn = ({ product }) => {
   const { productName, price, image } = product;
-  console.log(image);
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   return (
     <div className="product-information-column py-10 px-5 flex bg-white">
       <div className="col w-full pt-10">
-        <Photo src={image} alt={productName} />
+        <Photo src={staticServerUrl + image} alt={productName} />
       </div>
       <div className="col pt-10">
         <h1 className="name mt-3 ml-10 text-left font-bold">{productName}</h1>
