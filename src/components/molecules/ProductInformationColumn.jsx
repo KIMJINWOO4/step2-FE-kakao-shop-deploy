@@ -2,7 +2,7 @@ import { comma } from "../../utils/convert";
 import Photo from "../atoms/Photo";
 const ProductInformationColumn = ({ product }) => {
   const { productName, price, image } = product;
-
+  console.log(image);
   return (
     <div className="product-information-column py-10 px-5 flex bg-white">
       <div className="col w-full pt-10">

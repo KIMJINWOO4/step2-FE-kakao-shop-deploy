@@ -83,7 +83,7 @@ const OrderTemplate = ({ data }) => {
                 <div className="product-name font-bold flex place-content-center">
                   <div className=" gap-4 w-[100px] h-[100px]">
                     <Photo
-                      src={`/images/${item.id}.jpg`}
+                      src={`${staticServerUrl}/images/${item.id}.jpg`}
                       alt={`${item.id}`}
                       className="rounded-md"
                     />

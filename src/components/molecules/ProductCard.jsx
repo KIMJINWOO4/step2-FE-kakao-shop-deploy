@@ -3,10 +3,11 @@ import Card from "../atoms/Card";
 import Photo from "../atoms/Photo";
 
 const ProductCard = ({ product, className }) => {
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   return (
     <Card to={`/product/${product.id}`} className={className}>
       <Photo
-        src={`http://kakao-app-env.eba-kfsgeb74.ap-northeast-2.elasticbeanstalk.com${product.image}`}
+        src={`${staticServerUrl}/images/${product.id}.jpg`}
         alt={product.productName}
       />
       <h3 className="h-[24px] w-[249.25px] text-ellipsis whitespace-nowrap overflow-hidden">
