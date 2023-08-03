@@ -1,3 +1,4 @@
+### [배포 링크](https://user-app.krampoline.com/kcb0e23d222eaa)
 ### 필수 페이지 구성
 
 ```plaintext
@@ -54,6 +55,10 @@
 - 기능 상세 설명: 각 상품의 옵션과 가격을 표시합니다.
 - 인터페이스 요구사항: 쇼핑 계속하기 버튼 클릭 시 메인 화면으로 돌아갑니다.
 
+7. 에러 페이지
+- 핵심 기능: api 요청 응답이 올바르지 않을 경우를 표시합니다.
+- 기능 상세 설명: status code를 콘솔에 출력하고 에러 상황임을 보여줍니다.
+
 ---
 
 
@@ -69,6 +74,34 @@
 - utils
 - public
 - node_modules
-- dto
 ```
+
+---
+
+### 배포
+
+#### 배포 환경 
+- 카카오 크램폴린 IDE
+#### 배포 순서 
+  1. 개발 브랜치에서 작업 후 Pull Request를 통한 멘토링 진행
+  2. 배포를 위해 main 브랜치에 merge
+  3. `Dockerfile` `default.conf` 등 배포를 위한 파일 생성
+  4. 배포 환경에 맞게 route, image 등 경로 재설정
+  5. 크램폴린 IDE와 GitHub Repository 연동 후 컨테이너 생성
+  6. D2Hub 빌드 및 Kargo 앱 등록
+  7. 배포 시작
+  8. 
+#### 배포에 영향을 받는 브랜치 
+- `main`
+  
+#### 배포시 주의 사항
+- 배포용 static 주소와 로컬 기반 개발용 주소 구분
+- `Dockerfile` `default.conf` 파일 수정 주의
+
+
+
+
+
+
+
 
