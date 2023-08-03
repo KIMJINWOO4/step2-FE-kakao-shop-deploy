@@ -23,14 +23,14 @@ const GNB = ({ children }) => {
             alt="톡쇼핑하기"
             className="overflow-clip-margin-content overflow-clip overflow-x-auto overflow-y-auto"
             src="https://st.kakaocdn.net/commerce_ui/front-talkstore/real/20230707/130532/assets/images/pc/pc_logo.png"
-            onClick={() => gohome("/")}
+            onClick={() => gohome(staticServerUrl + "/")}
           />
         </h1>
         <Container className="text-base leading-6 font-sans text-gray-700 pt-13 pr-0 pb-13 pl-3 flex justify-end">
           <span className="block mt-3 mr-4">
             <Link to={staticServerUrl + "/cart"}>
               <img
-                src={"%PUBLIC_URL%/cart.png"}
+                src={staticServerUrl + "cart.png"}
                 alt="장바구니 버튼"
                 height={30}
                 width={40}
