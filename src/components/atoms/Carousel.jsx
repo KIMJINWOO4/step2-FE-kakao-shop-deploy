@@ -18,17 +18,27 @@ const Carousel = () => {
     pauseOnFocus: true, // focus시 정지
     pauseOnHover: true, // hover시 정지
   };
+  const staticServerUrl = process.env.REACT_APP_PATH || "";
   return (
     <div>
       <Slider {...settings}>
         <div>
-          <img src="/carouselItem1.jpeg" alt="carouselItem1" />
+          <img
+            src={staticServerUrl + "/carouselItem1.jpeg"}
+            alt="carouselItem1"
+          />
         </div>
         <div>
-          <img src="/carouselItem2.jpeg" alt="carouselItem2" />
+          <img
+            src={staticServerUrl + "/carouselItem2.jpeg"}
+            alt="carouselItem2"
+          />
         </div>
         <div>
-          <img src="/carouselItem3.jpeg" alt="carouselItem3" />
+          <img
+            src={staticServerUrl + "/carouselItem3.jpeg"}
+            alt="carouselItem3"
+          />
         </div>
       </Slider>
     </div>
