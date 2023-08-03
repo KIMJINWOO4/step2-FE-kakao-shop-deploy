@@ -11,6 +11,8 @@ import OrderPage from "./pages/OrderPage";
 import RequiredAuthLayout from "./layouts/RequiredAuthLayout";
 import OrderCompletePage from "./pages/OrderCompletePage";
 
+const staticServerUrl = process.env.REACT_APP_PATH || "";
+
 function App() {
   return (
     <div className="App">
@@ -20,20 +22,38 @@ function App() {
       <BrowserRouter>
         {/*단독 레이아웃*/}
         <Routes>
-          <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/signup" element={<RegisterPage />}></Route>
-          <Route path="/error" element={<ErrorPage />}></Route>
+          <Route
+            path={staticServerUrl + "/login"}
+            element={<LoginPage />}
+          ></Route>
+          <Route
+            path={staticServerUrl + "/signup"}
+            element={<RegisterPage />}
+          ></Route>
+          <Route
+            path={staticServerUrl + "/error"}
+            element={<ErrorPage />}
+          ></Route>
 
           {/*공통 레이아웃 : GNB. FOOTER*/}
           <Route element={<MainLayout />}>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/product/:id" element={<ProductDetailPage />}></Route>
+            <Route path={staticServerUrl + "/"} element={<HomePage />}></Route>
+            <Route
+              path={staticServerUrl + "/product/:id"}
+              element={<ProductDetailPage />}
+            ></Route>
           </Route>
           <Route element={<RequiredAuthLayout />}>
-            <Route path="/cart" element={<CartPage />}></Route>
-            <Route path="/order" element={<OrderPage />}></Route>
             <Route
-              path="/orders/complete/:id"
+              path={staticServerUrl + "/cart"}
+              element={<CartPage />}
+            ></Route>
+            <Route
+              path={staticServerUrl + "/order"}
+              element={<OrderPage />}
+            ></Route>
+            <Route
+              path={staticServerUrl + "/orders/complete/:id"}
               element={<OrderCompletePage />}
             ></Route>
           </Route>
